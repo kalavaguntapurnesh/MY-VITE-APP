@@ -21,11 +21,6 @@ jobs:
           name: Sync to S3
           command: |
             aws s3 sync ./dist s3://my-vite-app-bucket --delete
-      - run:
-          name: Invalidate CloudFront (if using CloudFront)
-          command: |
-            aws cloudfront create-invalidation --distribution-id YOUR_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
-          when: always
           
 workflows:
   version: 2
